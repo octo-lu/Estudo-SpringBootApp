@@ -8,7 +8,7 @@ public class Nobsv2Application {
 
 	public static void main(String[] args) {
 
-		System.out.println("Hello World");
+		System.out.println("NobsV2 Course server application");
 		SpringApplication.run(Nobsv2Application.class, args);
 	}
 
