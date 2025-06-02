@@ -23,6 +23,7 @@ public class GetProductsService implements Query<Void, List<ProductDTO>> {
         this.productRepository = productRepository;
     }
 
+
     @Override
     public ResponseEntity<List<ProductDTO>> execute(Void input) {
         logger.info("Executing " + getClass());
