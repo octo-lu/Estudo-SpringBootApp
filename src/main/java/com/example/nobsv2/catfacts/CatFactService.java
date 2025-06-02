@@ -16,7 +16,7 @@ public class CatFactService implements Query<Integer, CatFactDTO> {
 
     private final RestTemplate restTemplate;
     private final String url = "https://catfact.ninja/fact";
-    private final String MAX_LENGHT = "max_lenght";
+    private final String MAX_LENGTH = "max_length";
 
     public CatFactService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
@@ -27,7 +27,7 @@ public class CatFactService implements Query<Integer, CatFactDTO> {
         //Sets up our url with query string parameters
         URI uri = UriComponentsBuilder
                 .fromHttpUrl(url)
-                .queryParam(MAX_LENGHT, input)
+                .queryParam(MAX_LENGTH, input)
                 .build()
                 .toUri();
 
