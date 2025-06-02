@@ -21,7 +21,7 @@ public class SSE {
             try {
                 for (int i = 0; i < 5; i++) {
 
-                    emitter.send("SSE STREAM Managed by the Server - " + i);
+                    emitter.send("SSE STREAM Managed by the Server - " + i + " In time - " + System.currentTimeMillis());
                     Thread.sleep(1000); // simulate delay
                 }
                 emitter.complete();
@@ -39,7 +39,7 @@ public class SSE {
             try {
                 for (int i = 0; i < 100; i++) {
 
-                    emitter.send("SSE STREAM Managed by the client - " + i);
+                    emitter.send("SSE STREAM Managed by the client - " + i + " In time - " + System.currentTimeMillis());
                     Thread.sleep(1000); // simulate delay
                 }
             } catch (IOException | InterruptedException e) {
