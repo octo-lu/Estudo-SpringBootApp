@@ -1,5 +1,6 @@
 package com.example.nobsv2.security;
 
+import com.example.nobsv2.security.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -30,23 +31,21 @@ public class SecurityConfiguration {
     }
 
     @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter(){
+        return new JwtAuthenticationFilter();
+    }
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
        return httpSecurity
                .csrf(AbstractHttpConfigurer::disable)
                .authorizeHttpRequests(authorize -> {
-
                    authorize.requestMatchers("/createnewuser").permitAll();
-
-
-
-
+                   authorize.requestMatchers("/login").permitAll();
                    authorize.anyRequest().authenticated();
-               })
-               .addFilterBefore(
-                       new BasicAuthenticationFilter(authenticationManager(httpSecurity)),
-                       UsernamePasswordAuthenticationFilter.class
-               )
 
+               })
+               .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                .build();
     }
 }
