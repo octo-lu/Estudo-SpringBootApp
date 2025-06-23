@@ -23,6 +23,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Optional<CustomUser> optionalUser = customUserRepository.findById(username);
 
+
         //this is where you can add roles and authorities to the user
         //relational mapping to get roles and authorities
 

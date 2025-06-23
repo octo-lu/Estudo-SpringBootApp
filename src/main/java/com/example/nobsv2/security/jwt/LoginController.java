@@ -5,12 +5,15 @@ import com.example.nobsv2.security.CustomUser;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.lang.model.util.AbstractAnnotationValueVisitor7;
 
 @RestController
 public class LoginController {
@@ -23,6 +26,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody CustomUser user){
+
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                 user.getUsername(),
                 user.getPassword()

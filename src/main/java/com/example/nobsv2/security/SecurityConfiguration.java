@@ -40,6 +40,7 @@ public class SecurityConfiguration {
        return httpSecurity
                .csrf(AbstractHttpConfigurer::disable)
                .authorizeHttpRequests(authorize -> {
+                   //authorize.anyRequest().permitAll();
                    authorize.requestMatchers("/createnewuser").permitAll();
                    authorize.requestMatchers("/login").permitAll();
                    authorize.anyRequest().authenticated();
